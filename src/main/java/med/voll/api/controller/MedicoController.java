@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
-import med.voll.api.dto.medico.DadosCadastroMedico;
-import med.voll.api.dto.medico.DadosListagemMedico;
+import med.voll.api.dto.medico.atualizacao.DadosAtualizacaoMedicos;
+import med.voll.api.dto.medico.cadastro.DadosCadastroMedico;
+import med.voll.api.dto.medico.listagem.DadosListagemMedico;
 import med.voll.api.entities.Medico;
 import med.voll.api.repositories.MedicoRepository;
 
@@ -38,5 +39,10 @@ public class MedicoController {
         return medicoRepository.findAll(paginacao).map(DadosListagemMedico::new);
     }
 
-    
+    @PutMapping
+    @Transactional
+    public void atualizar(@RequestBody @Valid DadosAtualizacaoMedicos dados){
+        var medico = medicoRepository.getReferenceById(dados.id());
+        medico.atualizarInformacoes(dados);    
+    }   
 }
