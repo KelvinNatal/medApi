@@ -1,4 +1,4 @@
-package med.voll.api.entities.usuario;
+package med.voll.api.entities;
 
 import java.util.Collection;
 import java.util.List;

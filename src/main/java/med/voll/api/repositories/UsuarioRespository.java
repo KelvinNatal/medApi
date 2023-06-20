@@ -3,7 +3,7 @@ package med.voll.api.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import med.voll.api.entities.usuario.Usuario;
+import med.voll.api.entities.Usuario;
 
 public interface UsuarioRespository extends JpaRepository<Usuario, Long>{
 
